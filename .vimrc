@@ -53,7 +53,7 @@ set completeopt=longest,menuone
 hi clear
 set background=dark
 colorscheme solarized
-set nonumber
+set number
 set hlsearch
 set ruler
 set showmatch
