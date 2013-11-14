@@ -67,12 +67,6 @@ set pastetoggle=<F12>
 nnoremap <F9> :TagbarToggle<CR>
 nnoremap <F8> :NERDTreeToggle<CR>
 let mapleader=","
-map <C-x> "+x
-map <C-c> "+y
-map <C-p> "+gP
-map <C-a> ggVG
-"inoremap <C-Space> <C-x><C-o>
-imap <C-@> <C-Space>
 nnoremap <F5> :GundoToggle<CR>
 
 "---------------------------------------"
