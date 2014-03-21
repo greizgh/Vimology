@@ -22,9 +22,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'kien/ctrlp.vim'
 Bundle 'vim-scripts/ZoomWin'
-Bundle 'davidhalter/jedi-vim'
 Bundle 'bling/vim-airline'
-Bundle 'klen/python-mode'
 Bundle 'Valloric/YouCompleteMe'
 
 "---------------------------------------"
@@ -45,7 +43,7 @@ set softtabstop=4
 set incsearch
 set virtualedit=onemore
 let g:tex_flavor = "latex"
-set completeopt=longest,menuone
+set completeopt=menuone,preview
 
 "---------------------------------------"
 " UI settings                           "
@@ -100,6 +98,7 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
+nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 "---------------------------------------"
 " Helpers                               "
@@ -116,3 +115,4 @@ nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR>
 
 " grep in project
 set grepprg=grep\ -nH\ $*
+au BufRead,BufNewFile *.md set filetype=markdown
