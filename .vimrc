@@ -22,8 +22,8 @@ Bundle 'scrooloose/syntastic'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'kien/ctrlp.vim'
 Bundle 'vim-scripts/ZoomWin'
-Bundle 'bling/vim-airline'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'bling/vim-airline'
 
 "---------------------------------------"
 " General settings                      "
@@ -34,7 +34,6 @@ set hidden
 set mouse=a
 set autoindent
 set smartindent
-set laststatus=2
 set backspace=indent,eol,start
 set shiftwidth=4
 set expandtab
@@ -56,6 +55,8 @@ set hlsearch
 set ruler
 set showmatch
 set shortmess+=I
+set laststatus=2
+set noshowmode
 
 
 "---------------------------------------"
@@ -70,6 +71,10 @@ nnoremap <F5> :GundoToggle<CR>
 "---------------------------------------"
 " Plugin specific configuration         "
 "---------------------------------------"
+
+" Airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 
 "NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
