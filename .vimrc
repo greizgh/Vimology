@@ -8,22 +8,24 @@
 set nocompatible
 " Let Vundle load plugins
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " Vundle bundles
-Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-fugitive'
-Bundle 'sjl/gundo.vim'
-Bundle 'majutsushi/tagbar'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'kien/ctrlp.vim'
-Bundle 'vim-scripts/ZoomWin'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'bling/vim-airline'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'sjl/gundo.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'kien/ctrlp.vim'
+Plugin 'vim-scripts/ZoomWin'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'bling/vim-airline'
+
+call vundle#end()
 
 "---------------------------------------"
 " General settings                      "
