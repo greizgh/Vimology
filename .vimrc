@@ -24,6 +24,11 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'vim-scripts/ZoomWin'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'bling/vim-airline'
+Plugin 'justinmk/vim-sneak'
+Plugin 'klen/python-mode'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'pangloss/vim-javascript'
+Plugin 'nathanaelkane/vim-indent-guides'
 
 call vundle#end()
 
@@ -91,10 +96,10 @@ let g:syntastic_check_on_wq = 0
 " Set syntastic passive on python (python-mode already check my code)
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': [],
-                           \ 'passive_filetypes': ['python'] }
+                           \ 'passive_filetypes': [] }
 " Pymode options
 let g:pymode_folding = 0
-let g:pymode_rope = 0
+let g:pymode_rope_completion = 0
 
 " Taglist
 let Tlist_Exit_OnlyWindow = 1
