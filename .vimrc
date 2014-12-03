@@ -23,7 +23,8 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'kien/ctrlp.vim'
 Plugin 'vim-scripts/ZoomWin'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'bling/vim-airline'
+"Plugin 'bling/vim-airline'
+Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'justinmk/vim-sneak'
 Plugin 'klen/python-mode'
 Plugin 'airblade/vim-gitgutter'
@@ -62,6 +63,7 @@ set hlsearch
 set ruler
 set showmatch
 set shortmess+=I
+set showtabline=2
 set laststatus=2
 set noshowmode
 
@@ -78,10 +80,6 @@ nnoremap <F5> :GundoToggle<CR>
 "---------------------------------------"
 " Plugin specific configuration         "
 "---------------------------------------"
-
-" Airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
 
 "NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
@@ -104,6 +102,9 @@ let g:pymode_rope_completion = 0
 " Taglist
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_Process_File_Always = 1
+
+" CtrlP
+nnoremap <leader>t :CtrlPTag<CR>
 
 "YouCompleteMe
 let g:ycm_collect_identifiers_from_tags_files = 1
