@@ -15,13 +15,14 @@ call vundle#begin()
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Shougo/unite.vim'
 Plugin 'Shougo/neomru.vim'
+Plugin 'SirVer/ultisnips'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'gmarik/Vundle.vim'
+Plugin 'honza/vim-snippets'
 Plugin 'justinmk/vim-sneak'
-Plugin 'klen/python-mode'
 Plugin 'majutsushi/tagbar'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'pangloss/vim-javascript'
@@ -123,6 +124,9 @@ nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 let g:unite_source_history_yank_enable = 1
 let g:unite_enable_start_insert = 1
 let g:unite_split_rule = "botright"
+
+" Ultisnips
+let g:UltiSnipsExpandTrigger="<cr>"
 
 "---------------------------------------"
 " Helpers                               "
