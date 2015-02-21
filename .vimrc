@@ -12,24 +12,26 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " Vundle bundles
+Plugin 'Shougo/vimproc.vim'
+Plugin 'Shougo/unite.vim'
+Plugin 'Shougo/neomru.vim'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'bling/vim-airline'
 Plugin 'gmarik/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'sjl/gundo.vim'
+Plugin 'justinmk/vim-sneak'
+Plugin 'klen/python-mode'
 Plugin 'majutsushi/tagbar'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'kien/ctrlp.vim'
+Plugin 'sjl/gundo.vim'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-fugitive'
 Plugin 'vim-scripts/ZoomWin'
-Plugin 'Valloric/YouCompleteMe'
-"Plugin 'bling/vim-airline'
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-Plugin 'justinmk/vim-sneak'
-Plugin 'klen/python-mode'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'pangloss/vim-javascript'
-Plugin 'nathanaelkane/vim-indent-guides'
 
 call vundle#end()
 
@@ -45,7 +47,7 @@ set smartindent
 set backspace=indent,eol,start
 set shiftwidth=4
 set expandtab
-set tabstop=8
+set tabstop=4
 set softtabstop=4
 set incsearch
 set virtualedit=onemore
@@ -76,14 +78,21 @@ nnoremap <F9> :TagbarToggle<CR>
 nnoremap <F8> :NERDTreeToggle<CR>
 let mapleader=","
 nnoremap <F5> :GundoToggle<CR>
+nnoremap <C-p> :Unite -start-insert file_rec/async<cr>
+nnoremap <leader>m :Unite file_mru<cr>
+nnoremap <leader>/ :Unite  grep:.<cr>
+nnoremap <leader>y :Unite history/yank<cr>
+nnoremap <leader>b :Unite -quick-match buffer<cr>
 
 "---------------------------------------"
 " Plugin specific configuration         "
 "---------------------------------------"
 
-"NERDTree
+" Airline
+let g:airline_powerline_fonts = 1
+
+" NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-"autocmd vimenter * if !argc() | NERDTree | endif
 
 " Gundo
 let g:gundo_close_on_revert = 1
@@ -91,10 +100,7 @@ let g:gundo_help = 0
 
 " Syntastic
 let g:syntastic_check_on_wq = 0
-" Set syntastic passive on python (python-mode already check my code)
-let g:syntastic_mode_map = { 'mode': 'active',
-                           \ 'active_filetypes': [],
-                           \ 'passive_filetypes': [] }
+
 " Pymode options
 let g:pymode_folding = 0
 let g:pymode_rope_completion = 0
@@ -106,12 +112,17 @@ let Tlist_Process_File_Always = 1
 " CtrlP
 nnoremap <leader>t :CtrlPTag<CR>
 
-"YouCompleteMe
+" YouCompleteMe
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" Unite
+let g:unite_source_history_yank_enable = 1
+let g:unite_enable_start_insert = 1
+let g:unite_split_rule = "botright"
 
 "---------------------------------------"
 " Helpers                               "
