@@ -69,6 +69,7 @@ set shortmess+=I
 set showtabline=2
 set laststatus=2
 set noshowmode
+set cursorline
 
 
 "---------------------------------------"
@@ -79,6 +80,7 @@ nnoremap <F9> :TagbarToggle<CR>
 nnoremap <F8> :NERDTreeToggle<CR>
 let mapleader=","
 nnoremap <F5> :GundoToggle<CR>
+nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap <C-p> :Unite -start-insert file_rec/async<cr>
 nnoremap <leader>m :Unite file_mru<cr>
 nnoremap <leader>/ :Unite  grep:.<cr>
@@ -102,31 +104,23 @@ let g:gundo_help = 0
 " Syntastic
 let g:syntastic_check_on_wq = 0
 
-" Pymode options
-let g:pymode_folding = 0
-let g:pymode_rope_completion = 0
-
-" Taglist
-let Tlist_Exit_OnlyWindow = 1
-let Tlist_Process_File_Always = 1
-
-" CtrlP
-nnoremap <leader>t :CtrlPTag<CR>
+" Tagbar
+let g:tagbar_autofocus = 1
+let g:tagbar_autoclose = 1
 
 " YouCompleteMe
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
-nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " Unite
 let g:unite_source_history_yank_enable = 1
 let g:unite_enable_start_insert = 1
 let g:unite_split_rule = "botright"
 
-" Ultisnips
-let g:UltiSnipsExpandTrigger="<cr>"
+" UltiSnips
+let g:UltiSnipsExpandTrigger = "<c-k>"
 
 "---------------------------------------"
 " Helpers                               "
