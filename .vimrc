@@ -131,12 +131,6 @@ let g:UltiSnipsExpandTrigger = "<c-k>"
 " Helpers                               "
 "---------------------------------------"
 
-" remove bad spaces
-"autocmd BufReadPost * match BadWhitespace /\s\+$/
-"autocmd InsertEnter * match BadWhitespace /\s\+\%#\@<!$/
-"autocmd InsertLeave * match BadWhitespace /\s\+$/
-"highlight BadWhitespace ctermbg=1
-
 " Remove trailing whitespace on <leader>S
 nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR>
 
