@@ -23,6 +23,7 @@ Plugin 'bling/vim-airline'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'honza/vim-snippets'
 Plugin 'justinmk/vim-sneak'
+Plugin 'klen/python-mode'
 Plugin 'majutsushi/tagbar'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'pangloss/vim-javascript'
@@ -104,6 +105,10 @@ let g:gundo_help = 0
 " Syntastic
 let g:syntastic_check_on_wq = 0
 
+" Pymode options
+let g:pymode_folding = 0
+let g:pymode_rope_complete_on_dot = 0
+
 " Tagbar
 let g:tagbar_autofocus = 1
 let g:tagbar_autoclose = 1
@@ -127,10 +132,10 @@ let g:UltiSnipsExpandTrigger = "<c-k>"
 "---------------------------------------"
 
 " remove bad spaces
-autocmd BufReadPost * match BadWhitespace /\s\+$/
-autocmd InsertEnter * match BadWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match BadWhitespace /\s\+$/
-highlight BadWhitespace ctermbg=1
+"autocmd BufReadPost * match BadWhitespace /\s\+$/
+"autocmd InsertEnter * match BadWhitespace /\s\+\%#\@<!$/
+"autocmd InsertLeave * match BadWhitespace /\s\+$/
+"highlight BadWhitespace ctermbg=1
 
 " Remove trailing whitespace on <leader>S
 nnoremap <leader>S :%s/\s\+$//<cr>:let @/=''<CR>
