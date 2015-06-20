@@ -35,6 +35,7 @@ Plugin 'sjl/gundo.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-scripts/ZoomWin'
+Plugin 'chase/vim-ansible-yaml'
 
 call vundle#end()
 
