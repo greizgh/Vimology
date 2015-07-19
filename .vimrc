@@ -23,7 +23,6 @@ Plugin 'bling/vim-airline'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'honza/vim-snippets'
 Plugin 'justinmk/vim-sneak'
-Plugin 'klen/python-mode'
 Plugin 'majutsushi/tagbar'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'pangloss/vim-javascript'
@@ -57,6 +56,7 @@ set incsearch
 set virtualedit=onemore
 let g:tex_flavor = "latex"
 set completeopt=menuone,preview
+set rnu
 
 "---------------------------------------"
 " UI settings                           "
