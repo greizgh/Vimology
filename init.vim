@@ -3,8 +3,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'Valloric/MatchTagAlways'
 " Completion
 Plug 'Valloric/YouCompleteMe', {'do': 'python2 install.py --clang-completer --tern-completer --racer-completer'}
-"Plug 'Shougo/deoplete.nvim'
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
+"Plug 'Shougo/deoplete.nvim'
 
 " Motion
 Plug 'easymotion/vim-easymotion'
@@ -35,10 +35,9 @@ Plug 'cohama/lexima.vim'
 
 " React
 Plug 'mxw/vim-jsx' | Plug 'pangloss/vim-javascript'
-Plug 'ternjs/tern_for_vim', { 'for': ['javascript'] }
 
 " Rust
-Plug 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim', { 'for': ['rust'] }
 
 " TOML support
 Plug 'cespare/vim-toml'
@@ -69,6 +68,9 @@ nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>d :YcmCompleter GoToDefinition<cr>
 nnoremap <A-x> :Commands<cr>
 nnoremap <C-f> :Ag<cr>
+nmap m <Plug>(easymotion-overwin-f2)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
 
 " Airline
 let g:airline_powerline_fonts = 1
@@ -82,6 +84,9 @@ let g:gundo_help = 0
 
 " Syntastic
 let g:syntastic_check_on_wq = 0
+
+" Easymotion
+let g:EasyMotion_g_smartcase = 1
 
 " Neomake
 autocmd! BufReadPost,BufWritePost * Neomake
