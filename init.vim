@@ -8,6 +8,7 @@ Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 
 " Motion
 Plug 'easymotion/vim-easymotion'
+Plug 'farmergreg/vim-lastplace'
 
 Plug 'altercation/vim-colors-solarized'
 Plug 'benekastah/neomake'
@@ -32,9 +33,10 @@ Plug 'honza/vim-snippets'
 
 " Auto pair parenthesis
 Plug 'cohama/lexima.vim'
+Plug 'tpope/vim-surround'
 
-" React
-Plug 'mxw/vim-jsx' | Plug 'pangloss/vim-javascript'
+" Syntax
+Plug 'sheerun/vim-polyglot'
 
 " Rust
 Plug 'rust-lang/rust.vim', { 'for': ['rust'] }
@@ -42,7 +44,6 @@ Plug 'rust-lang/rust.vim', { 'for': ['rust'] }
 " TOML support
 Plug 'cespare/vim-toml'
 
-" overlap with neomake
 Plug 'airblade/vim-gitgutter'
 
 call plug#end()
@@ -89,7 +90,7 @@ let g:syntastic_check_on_wq = 0
 let g:EasyMotion_g_smartcase = 1
 
 " Neomake
-autocmd! BufReadPost,BufWritePost * Neomake
+call neomake#configure#automake('w')
 
 " YouCompleteMe
 let g:ycm_collect_identifiers_from_tags_files = 1
@@ -97,6 +98,7 @@ let g:ycm_confirm_extra_conf = 0
 let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_python_binary_path = 'python'
+"let g:ycm_rust_src_path = $RUST_SRC_PATH
 
 let g:UltiSnipsExpandTrigger="<C-e>"
 
