@@ -109,3 +109,7 @@ let g:jsx_ext_required = 0 " Allow JSX in .js files
 let g:unite_source_history_yank_enable = 1
 let g:unite_enable_start_insert = 1
 let g:unite_split_rule = "botright"
+
+" Rust
+let g:rustfmt_autosave = 1
+let g:rustfmt_command = 'cargo fmt'
