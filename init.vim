@@ -22,9 +22,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
 Plug 'majutsushi/tagbar'
-Plug 'Quramy/tsuquyomi'
-Plug 'leafgarland/typescript-vim'
-"Plug 'scrooloose/syntastic'
 Plug 'neomake/neomake'
 Plug 'tweekmonster/braceless.vim'
 Plug 'junegunn/fzf.vim' | Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -43,10 +40,9 @@ Plug 'sheerun/vim-polyglot'
 " Rust
 Plug 'rust-lang/rust.vim', { 'for': ['rust'] }
 
-" TOML support
-Plug 'cespare/vim-toml'
-
 Plug 'airblade/vim-gitgutter'
+
+Plug 'sbdchd/neoformat'
 
 call plug#end()
 set shortmess+=I
@@ -110,3 +106,9 @@ let g:LanguageClient_serverCommands = {
     \ 'javascript.jsx': ['javascript-typescript-stdio'],
     \ 'python': ['pyls'],
     \ }
+
+" Autoformat on save
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
