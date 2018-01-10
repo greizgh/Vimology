@@ -2,9 +2,11 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'Valloric/MatchTagAlways'
 " Completion
-Plug 'Valloric/YouCompleteMe', {'do': 'python2 install.py --clang-completer --tern-completer --racer-completer'}
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
-"Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-completion-manager'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 
 " Motion
 Plug 'easymotion/vim-easymotion'
@@ -28,8 +30,8 @@ Plug 'tweekmonster/braceless.vim'
 Plug 'junegunn/fzf.vim' | Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " Snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+"Plug 'SirVer/ultisnips'
+"Plug 'honza/vim-snippets'
 
 " Auto pair parenthesis
 Plug 'cohama/lexima.vim'
@@ -58,20 +60,25 @@ set background=dark
 colorscheme solarized
 set number
 set cursorline
+set hidden
 
 let mapleader=","
 nnoremap <F5> :GundoToggle<CR>
 nnoremap <F8> :NERDTreeToggle<CR>
 nnoremap <F9> :TagbarToggle<CR>
 nnoremap <C-p> :FZF<cr>
-nnoremap <leader>y :Unite history/yank<cr>
 nnoremap <leader>b :Buffers<cr>
-nnoremap <leader>d :YcmCompleter GoToDefinition<cr>
 nnoremap <A-x> :Commands<cr>
 nnoremap <C-f> :Ag<cr>
 nmap m <Plug>(easymotion-overwin-f2)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+" Cycle through completions with tab
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Airline
 let g:airline_powerline_fonts = 1
@@ -83,33 +90,23 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 let g:gundo_close_on_revert = 1
 let g:gundo_help = 0
 
-" Syntastic
-let g:syntastic_check_on_wq = 0
-
 " Easymotion
 let g:EasyMotion_g_smartcase = 1
 
 " Neomake
 call neomake#configure#automake('w')
 
-" YouCompleteMe
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_add_preview_to_completeopt = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_python_binary_path = 'python'
-"let g:ycm_rust_src_path = $RUST_SRC_PATH
-
-let g:UltiSnipsExpandTrigger="<C-e>"
-
 " JSX
 let g:jsx_ext_required = 0 " Allow JSX in .js files
-
-" Unite
-let g:unite_source_history_yank_enable = 1
-let g:unite_enable_start_insert = 1
-let g:unite_split_rule = "botright"
 
 " Rust
 let g:rustfmt_autosave = 1
 let g:rustfmt_command = 'cargo fmt'
+
+" Language server
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['javascript-typescript-stdio'],
+    \ 'python': ['pyls'],
+    \ }
