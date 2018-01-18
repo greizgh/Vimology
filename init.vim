@@ -46,6 +46,7 @@ Plug 'sbdchd/neoformat'
 
 call plug#end()
 set shortmess+=I
+set shortmess+=c
 
 set shiftwidth=2
 set expandtab
@@ -72,9 +73,12 @@ map <Leader>k <Plug>(easymotion-k)
 nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
-" Cycle through completions with tab
+" NCM related mapping
+inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+imap <expr> <CR>  (pumvisible() ?  "\<c-y>\<Plug>(expand_or_nl)" : "\<CR>")
+imap <expr> <Plug>(expand_or_nl) (cm#completed_is_snippet() ? "\<C-U>":"\<CR>")
 
 " Airline
 let g:airline_powerline_fonts = 1
@@ -98,6 +102,15 @@ let g:jsx_ext_required = 0 " Allow JSX in .js files
 " Rust
 let g:rustfmt_autosave = 1
 let g:rustfmt_command = 'cargo fmt'
+
+" Ultisnips
+" As par NCM doc:
+let g:UltiSnipsExpandTrigger		= "<Plug>(ultisnips_expand)"
+let g:UltiSnipsJumpForwardTrigger	= "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger	= "<c-k>"
+let g:UltiSnipsRemoveSelectModeMappings = 0
+" optional
+inoremap <silent> <c-u> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr>
 
 " Language server
 let g:LanguageClient_serverCommands = {
