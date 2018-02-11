@@ -113,9 +113,13 @@ let g:UltiSnipsRemoveSelectModeMappings = 0
 inoremap <silent> <c-u> <c-r>=cm#sources#ultisnips#trigger_or_popup("\<Plug>(ultisnips_expand)")<cr>
 
 " Language server
+let g:LanguageClient_loadSettings = 1
+let g:LanguageClient_settingsPath = '/home/matt/.config/nvim/ls-settings.json'
 let g:LanguageClient_serverCommands = {
     \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
     \ 'javascript': ['javascript-typescript-stdio'],
     \ 'javascript.jsx': ['javascript-typescript-stdio'],
     \ 'python': ['pyls'],
+    \ 'c': ['cquery', '--log-file=/tmp/cq.log'],
+    \ 'cpp': ['cquery', '--log-file=/tmp/cq.log'],
     \ }
