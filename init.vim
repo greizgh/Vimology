@@ -43,6 +43,7 @@ Plug 'rust-lang/rust.vim', { 'for': ['rust'] }
 Plug 'airblade/vim-gitgutter'
 
 Plug 'sbdchd/neoformat'
+Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
 set shortmess+=I
@@ -89,6 +90,9 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 " Gundo
 let g:gundo_close_on_revert = 1
 let g:gundo_help = 0
+
+" EditorConfig
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 " Easymotion
 let g:EasyMotion_g_smartcase = 1
