@@ -67,7 +67,7 @@ nnoremap <F9> :TagbarToggle<CR>
 nnoremap <C-p> :FZF<cr>
 nnoremap <leader>b :Buffers<cr>
 nnoremap <A-x> :Commands<cr>
-nnoremap <C-f> :Ag<cr>
+nnoremap <C-f> :Rg<cr>
 nmap m <Plug>(easymotion-overwin-f2)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
@@ -96,6 +96,14 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 " Easymotion
 let g:EasyMotion_g_smartcase = 1
+
+" FZF
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
 
 " Neomake
 call neomake#configure#automake('w')
