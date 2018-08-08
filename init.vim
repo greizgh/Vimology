@@ -2,7 +2,10 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'Valloric/MatchTagAlways'
 " Completion
-Plug 'roxma/nvim-completion-manager'
+Plug 'ncm2/ncm2' | Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2-path'
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-syntax' | Plug 'Shougo/neco-syntax'
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
@@ -110,6 +113,10 @@ call neomake#configure#automake('w')
 
 " JSX
 let g:jsx_ext_required = 0 " Allow JSX in .js files
+
+" NCM2
+autocmd BufEnter * call ncm2#enable_for_buffer()
+set completeopt=noinsert,menuone,noselect
 
 " Rust
 let g:rustfmt_autosave = 1
