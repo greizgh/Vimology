@@ -30,8 +30,8 @@ Plug 'tweekmonster/braceless.vim'
 Plug 'junegunn/fzf.vim' | Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " Snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+"Plug 'SirVer/ultisnips'
+"Plug 'honza/vim-snippets'
 
 " Auto pair parenthesis
 Plug 'cohama/lexima.vim'
